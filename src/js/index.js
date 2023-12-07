@@ -1,7 +1,20 @@
 const btn = document.querySelector('#enviar');
 
-btn.addEventListener('click', enviar);
+btn.addEventListener('click', () => {
+    enviar();
+});
 
+
+let dateTime = document.querySelector('#dateTime');
+let printDate;
+
+function updateTime() {
+    let date = new Date();
+    dateTime.innerHTML = date.toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' });
+    printDate = date.toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' });
+}
+
+setInterval(updateTime, 1000);
 
 let xlBlackCheckbox = document.querySelector('#xl_black');
 
@@ -24,6 +37,7 @@ xlColorCheckbox.addEventListener('change', () => {
 });
 
 function enviar() {
+    
     let name = document.querySelector('#nome').value;
     let endereco = document.querySelector('#endereco').value;
     let telefone = document.querySelector('#fone').value;
@@ -50,6 +64,7 @@ function enviar() {
         qtdXlColor = 0;
     }
 
+    console.log('Data: ', printDate);
     console.log('Nome: ', name);
     console.log('Endereço: ', endereco);
     console.log('Telefone: ', telefone);
@@ -59,13 +74,14 @@ function enviar() {
     console.log('Quantidade Normal Colorido(s): ', qtdNormalColor);
     console.log('Custo Total: ', custoTotal);
 
-    alert('Nome: ' + name +
-    '\nEndereço: ' + endereco +
-    '\nTelefone: ' + telefone +
-    '\nQuantidade XL Preto(s):' + qtdXlBlack +
-    '\nQuantidade Normal Preto(s): ' + qtdNormalBlack +
-    '\nQuantidade XL Colorido(s): ' + qtdXlColor +
-    '\nQuantidade Normal Colorido(s): ' + qtdNormalColor +
-    '\nCusto Total: ' + custoTotal);
+    alert('Data: ' + printDate +
+        '\nNome: ' + name +
+        '\nEndereço: ' + endereco +
+        '\nTelefone: ' + telefone +
+        '\nQuantidade XL Preto(s):' + qtdXlBlack +
+        '\nQuantidade Normal Preto(s): ' + qtdNormalBlack +
+        '\nQuantidade XL Colorido(s): ' + qtdXlColor +
+        '\nQuantidade Normal Colorido(s): ' + qtdNormalColor +
+        '\nCusto Total: ' + custoTotal);
 }
 
