@@ -83,5 +83,32 @@ function enviar() {
         '\nQuantidade XL Colorido(s): ' + qtdXlColor +
         '\nQuantidade Normal Colorido(s): ' + qtdNormalColor +
         '\nCusto Total: ' + custoTotal);
+
+    // Criar um elemento HTML temporário
+    const pdfContent = document.createElement('div');
+
+    // Preencher o elemento com os dados
+    pdfContent.innerHTML = `
+        <p>Data: ${printDate}</p>
+        <p>Nome: ${name}</p>
+        <p>Endereço: ${endereco}</p>
+        <p>Telefone: ${telefone}</p>
+        <p>Quantidade XL Preto(s): ${qtdXlBlack}</p>
+        <p>Quantidade Normal Preto(s): ${qtdNormalBlack}</p>
+        <p>Quantidade XL Colorido(s): ${qtdXlColor}</p>
+        <p>Quantidade Normal Colorido(s): ${qtdNormalColor}</p>
+        <p>Custo Total: ${custoTotal}</p>
+    `;
+
+    // Adicionar o elemento ao corpo do documento
+    document.body.appendChild(pdfContent);
+
+    // Usar html2pdf para gerar o PDF
+    html2pdf(pdfContent);
+
+    // Remover o elemento após a geração do PDF
+    document.body.removeChild(pdfContent);
 }
+
+
 
