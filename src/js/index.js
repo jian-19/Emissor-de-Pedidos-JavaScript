@@ -124,20 +124,25 @@ function enviar() {
 
   // Criar um elemento HTML temporário
   const pdfContent = document.createElement("div");
-
+  pdfContent.style.fontSize = "10px";
   // Preencher o elemento com os dados
   pdfContent.innerHTML = `
-                <p>Data: ${printDate}</p>
-                <p>Pedido: ${pedido.pedidoCompleto}</p>
-                <p>Nome: ${name}</p>
-                <p>Endereço: ${endereco}</p>
-                <p>Telefone: ${telefone}</p>
-                <p>Quantidade XL Preto(s): ${qtdXlBlack}</p>
-                <p>Quantidade Normal Preto(s): ${qtdNormalBlack}</p>
-                <p>Quantidade XL Colorido(s): ${qtdXlColor}</p>
-                <p>Quantidade Normal Colorido(s): ${qtdNormalColor}</p>
-                <p>Observação: ${textArea}</p>
-                <p>Custo Total: ${custoTotal}</p>
+                <p style="font-size: 10px;">Data: ${printDate}</p>
+                <p style="font-size: 10px;">Pedido: ${pedido.pedidoCompleto}</p>
+                <hr>
+                <p style="font-size: 10px;">Nome: ${name}</p>
+                <p style="font-size: 10px;">Endereço: ${endereco}</p>
+                <p style="font-size: 10px;">Telefone: ${telefone}</p>
+                <hr>
+                <p style="font-size: 10px;">Quantidade XL Preto(s): ${qtdXlBlack}</p>
+                <p style="font-size: 10px;">Quantidade Normal Preto(s): ${qtdNormalBlack}</p>
+                <p style="font-size: 10px;">Quantidade XL Colorido(s): ${qtdXlColor}</p>
+                <p style="font-size: 10px;">Quantidade Normal Colorido(s): ${qtdNormalColor}</p>
+                <p style="font-size: 10px;">Observação: ${textArea}</p>
+                <p style="font-size: 10px;">Custo Total: ${custoTotal}</p>
+                <hr>
+                <br>
+                <p style="font-size: 10px;",>Assinatura: __________________________</p>
             `;
 
   // Adicionar o elemento ao corpo do documento
@@ -151,7 +156,7 @@ function enviar() {
     html2canvas: { scale: 2 },
     jsPDF: {
       unit: "mm",
-      format: "a4", // Defina o formato do papel (você pode ajustar conforme necessário)
+      format: [74, 105], // Defina o formato do papel (você pode ajustar conforme necessário)
       orientation: "portrait",
       // Ajustar a largura do papel para 100 mm (10 cm)
       width: 100,
