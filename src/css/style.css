@@ -1,0 +1,210 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --text-color: #000000;
+    --background-color: #D9D9D9;
+    --checkbox-color: #fff;
+    --checkbox-border: #b0b0b0;
+    --checkbox-checked: #0084ff;
+    --checkebor-checkd-border: #fff;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    justify-content: center;
+}
+
+.window {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--background-color);
+    width: 45vh;
+    height: auto;
+    border-radius: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    padding: 15%;
+    font-weight: bold;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    width: 80%;
+}
+
+.main input {
+    padding: 0.8rem;
+}
+
+.cart {
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-order {
+    display: flex;
+    gap: 5rem;
+}
+
+.black-order {
+    display: flex;
+    flex-direction: column;
+}
+
+.black-order input {
+    width: 5rem;
+}
+
+.checkbox-order-black {
+    margin: 0.5rem;
+}
+
+#cart-preto {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-weight: bold;
+    padding: 0.5rem 0 0.2rem 0;
+}
+
+#labelXlBlack {
+    display: flex;
+    justify-content: center;
+    margin-left: 10%;
+    font-weight: bold;
+    padding: 0.5rem 0 0.2rem 0;
+}
+
+#preto {
+    padding: 0.8rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#qtdXlBlack {
+    padding: 0.8rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.color-order {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+.checkbox-order-color {
+    margin: 0.5rem;
+    align-items: end;
+    text-align: end;
+}
+
+.color-order input {
+    width: 5rem;
+}
+
+#cart-color {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-weight: bold;
+    padding: 0.5rem 0 0.2rem 0;
+}
+
+#labelXlColor {
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    font-weight: bold;
+    padding: 0.5rem 0 0.2rem 0;
+}
+
+#color {
+    padding: 0.8rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#qtdXlColor {
+    padding: 0.8rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+textarea {
+    resize: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 0.4rem;
+    outline: none;
+    border: none;
+    padding: 0.8rem;
+    min-height: 10vh;
+    width: 80%;
+    margin: 0.8rem;
+}
+
+textarea::placeholder {
+    text-align: center;
+    padding-top: 8%;
+}
+
+input {
+    border: none;
+    outline: none;
+    height: 1.5rem;
+    border-radius: 0.4rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+  -moz-appearance: textfield;
+}
+
+input[type="checkbox"] {
+    -webkit-appearance: none; /* Remove os estilos padrão do navegador */
+    appearance: none;
+    border-radius: 0.5rem; /* Deixa o checkbox redondo */
+    width: 15px;
+    height: 15px;
+    border: 2px solid var(--checkbox-border); /* Adiciona uma borda para definir a cor do checkbox */
+    background-color: var(--checkbox-color); /* Cor de fundo do checkbox */
+    cursor: pointer;
+}
+
+input[type="checkbox"]:checked {
+    background-color: var(--checkbox-checked); /* Cor de fundo quando marcado */
+    border-color: var(--checkebor-checkd-border); /* Cor da borda quando marcado */
+}
+
+input::placeholder {
+    text-align: center;
+}
+
+#enviar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: none;
+    width: 20%;
+    height: 20%;
+    border-radius: 0.2rem;
+    padding: 2%;
+    margin: 2rem;
+    cursor: pointer;
+}
+
+.creditos {
+    font-style: italic;
+    font-weight: bold;
+    font-size: 0.9rem;
+    padding: 2rem;
+}

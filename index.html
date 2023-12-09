@@ -1,30 +1,74 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Emissor de Pedidos</title>
+
+    <link rel="stylesheet" href="./src/css/style.css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.js"></script>
 
     <script defer src="./src/js/index.js"></script>
 
 </head>
-<body>
-    <p id="dateTime" style="display: none;"></p>
-    <input type="text" placeholder="Nome" id="nome">
-    <input type="text" placeholder="Endereço" id="endereco">
-    <input type="tel" placeholder="telefone" id="fone">
-    <input type="number" placeholder="Preto" id="preto">
-    <input type="number" placeholder="Color" id="color">
-    <input type="number" value="" placeholder="qtd xl" style="display: none;"  id="qtdXlBlack">
-    <input type="number" value="" placeholder="qtd xl" style="display: none;"  id="qtdXlColor">
-    <input type="checkbox" id="normal_black" value="Normal">
-    <input type="checkbox" id="xl_black" value="XL">
-    <input type="checkbox" id="normal_color" value="Normal">
-    <input type="checkbox" id="xl_color" value="XL">
-    <textarea id="area" cols="30" rows="10" placeholder="Observação"></textarea>
 
-    <button id="enviar">Enviar</button>
+<body>
+    <section id="secao">
+        <div class="window">
+            <h1>Emissor de Pedidos</h1>
+            <div class="main">
+                <p id="dateTime" style="display: none;"></p>
+                <input type="text" placeholder="Nome" id="nome">
+                <input type="text" placeholder="Endereço" id="endereco">
+                <input type="tel" placeholder="telefone" id="fone">
+            </div>
+            <div class="cart">
+                <div class="cart-order">
+                    <div class="black-order">
+                        <label for="preto" id="cart-preto">Preto</label>
+                        <input type="number" placeholder="Preto" maxlength="3" id="preto" oninput="limitarDigitosCartuchos()">
+                        <label for="qtdXlBlack" id="labelXlBlack" style="display: none;">Preto XL</label>
+                        <input type="number" value="" placeholder="Qtd XL" maxlength="3" style="display: none;" id="qtdXlBlack">
+                    
+                        <div class="checkbox-order-black">
+                            <div>
+                                <input type="checkbox" id="normal_black" value="Normal">
+                                <label for="normal_black">Normal</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="xl_black" value="XL">
+                                <label for="xl_black">XL</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="color-order">
+                        <label for="color" id="cart-color">Color</label>
+                        <input type="number" placeholder="Color" maxlength="3" id="color">
+                        <label for="qtdXlColor" id="labelXlColor" style="display: none;">Color XL</label>
+                        <input type="number" value="" placeholder="Qtd XL" maxlength="3" style="display: none;" id="qtdXlColor">
+
+                        <div class="checkbox-order-color">
+                            <div>
+                                <label for="normal_color">Normal</label>
+                                <input type="checkbox" id="normal_color" value="Normal">
+                            </div>
+                            <div>
+                                <label for="XL">XL</label>
+                                <input type="checkbox" id="xl_color" value="XL">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <textarea id="area" cols="30" rows="4" maxlength="50" placeholder="Observação"></textarea>
+
+            <button id="enviar">Enviar</button>
+            <br>
+            <p class="creditos">Desenvolvido por Jian R. Ferreira</p>
+        </div>
+    </section>
 </body>
+
 </html>

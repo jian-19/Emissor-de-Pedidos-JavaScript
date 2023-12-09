@@ -22,8 +22,10 @@ let xlBlackCheckbox = document.querySelector("#xl_black");
 xlBlackCheckbox.addEventListener("change", () => {
   if (xlBlackCheckbox.checked) {
     qtdXlBlack.style.display = "block";
+    labelXlBlack.style.display ="block";
   } else {
     qtdXlBlack.style.display = "none";
+    labelXlBlack.style.display ="none";
   }
 });
 
@@ -32,12 +34,17 @@ let xlColorCheckbox = document.querySelector("#xl_color");
 xlColorCheckbox.addEventListener("change", () => {
   if (xlColorCheckbox.checked) {
     qtdXlColor.style.display = "block";
+    labelXlColor.style.display ="block";
   } else {
     qtdXlColor.style.display = "none";
+    labelXlColor.style.display ="none"
   }
 });
 
 function enviar() {
+
+  
+
   let name = document.querySelector("#nome").value;
   let endereco = document.querySelector("#endereco").value;
   let telefone = document.querySelector("#fone").value;
@@ -176,5 +183,17 @@ html2pdf(pdfContent, options)
       document.body.removeChild(pdfContent);
     }
   });
+
+    document.querySelector("#nome").value = "";
+    document.querySelector("#endereco").value = "";
+    document.querySelector("#fone").value = "";
+    document.querySelector("#preto").value = "";
+    document.querySelector("#color").value = "";
+    document.querySelector("#qtdXlBlack").value = "";
+    document.querySelector("#qtdXlColor").value = "";
+    document.querySelector('#area').value = "";
+
+    xlBlackCheckbox.checked = false;
+    xlColorCheckbox.checked = false;
 
 }
