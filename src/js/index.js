@@ -72,18 +72,18 @@ function enviar() {
   }
 
   function gerarCodigoRandomico() {
-    // Gera um número randômico entre 10000 e 99999
+
     return Math.floor(10000 + Math.random() * 90000);
   }
 
   function gerarPedido(nomeCliente) {
-    // Gera o código randômico de 5 dígitos
+
     const codigoRandomico = gerarCodigoRandomico();
 
-    // Adiciona o código randômico ao nome do cliente
+
     const nomeComCodigo = `${nomeCliente}_${codigoRandomico}`;
 
-    // Retorna o pedido completo
+
     return {
       nomeCliente: nomeCliente,
       codigoRandomico: codigoRandomico,
@@ -104,35 +104,9 @@ function enviar() {
   console.log("Quantidade Normal Colorido(s): ", qtdNormalColor);
   console.log("Custo Total: ", custoTotal);
 
-  alert(
-    "Data: " +
-      printDate +
-      "\nPedido: " +
-      pedido.pedidoCompleto +
-      "\nNome: " +
-      name +
-      "\nEndereço: " +
-      endereco +
-      "\nTelefone: " +
-      telefone +
-      "\nQuantidade XL Preto(s):" +
-      qtdXlBlack +
-      "\nQuantidade Normal Preto(s): " +
-      qtdNormalBlack +
-      "\nQuantidade XL Colorido(s): " +
-      qtdXlColor +
-      "\nQuantidade Normal Colorido(s): " +
-      qtdNormalColor +
-      "\nObservação: " +
-      textArea +
-      "\nCusto Total: " +
-      custoTotal
-  );
-
-  // Criar um elemento HTML temporário
   const pdfContent = document.createElement("div");
   pdfContent.style.fontSize = "10px";
-  // Preencher o elemento com os dados
+
   pdfContent.innerHTML = `
                 <p style="font-size: 10px;">Data: ${printDate}</p>
                 <p style="font-size: 10px;">Pedido: ${pedido.pedidoCompleto}</p>
@@ -152,33 +126,31 @@ function enviar() {
                 <p style="font-size: 10px;",>Assinatura: __________________________</p>
             `;
 
-  // Adicionar o elemento ao corpo do documento
   document.body.appendChild(pdfContent);
 
-  // Configurar opções para o html2pdf, incluindo o nome do arquivo
+
   const options = {
     margin: 10,
-    filename: nomeArquivoPDF, // Defina o nome do arquivo aqui
+    filename: nomeArquivoPDF,
     image: { type: "jpeg", quality: 0.98 },
     html2canvas: { scale: 2 },
     jsPDF: {
       unit: "mm",
-      format: [74, 105], // Defina o formato do papel (você pode ajustar conforme necessário)
+      format: [74, 105],
       orientation: "portrait",
-      // Ajustar a largura do papel para 100 mm (10 cm)
+
       width: 100,
     },
   };
 
-// Usar html2pdf para gerar o PDF e iniciar o download
 html2pdf(pdfContent, options)
   .then((pdf) => {
-    // Salvar o PDF
+
     pdf.save(options.filename);
   })
   .catch((error) => console.error("Erro ao gerar o PDF:", error))
   .finally(() => {
-    // Remover o elemento após o download
+
     if (document.body.contains(pdfContent)) {
       document.body.removeChild(pdfContent);
     }
